@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { Bell, IdCard, MapPin, Menu } from "lucide-react";
+import Link from "next/link";
+import { BottomNav } from "@/components/BottomNav";
 
 export default function Home() {
   return (
@@ -7,7 +8,7 @@ export default function Home() {
       {/* Mobile Container */}
       <div className="w-full max-w-[430px] bg-white shadow-2xl min-h-screen sm:min-h-[920px] flex flex-col relative overflow-hidden font-sans text-[#1a1a1a]">
         {/* Header Section */}
-        <div className="bg-[#173058] pt-12 pb-20 px-6 flex flex-col items-center text-center relative z-0">
+        <div className="bg-[#173058] pt-12 pb-28 px-6 flex flex-col items-center text-center relative z-0">
           <Image
             src="/logo-2.png"
             alt="República Federativa do Brasil"
@@ -25,7 +26,7 @@ export default function Home() {
           </div>
 
           {/* Menu Icon */}
-          <button className="absolute left-6 top-12">
+          <Link href="/loading" className="absolute left-6 top-12">
             <svg
               width="28"
               height="28"
@@ -40,26 +41,25 @@ export default function Home() {
               <line x1="3" y1="6" x2="21" y2="6"></line>
               <line x1="3" y1="18" x2="21" y2="18"></line>
             </svg>
-          </button>
+          </Link>
         </div>
 
         {/* Photo Card - na frente de tudo, sobrepondo azul e branco */}
-        <div className="relative z-50 flex justify-center -mt-[78px] mb-[-78px] pointer-events-none">
-          <div className="bg-white my-10 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.12)] flex flex-col items-center relative border border-gray-100 pointer-events-auto">
-            <div className="absolute top-2 right-2 z-10">
+        <div className="relative z-50 flex justify-center -mt-[78px] mb-[-40px] pointer-events-none">
+          <div className="relative pointer-events-auto">
+            <div className="absolute -top-1 -right-1 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-white/90 shadow-sm">
               <svg
-                width="18"
-                height="18"
+                width="14"
+                height="14"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#9ca3af"
+                stroke="#6b7280"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               >
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="16" x2="12" y2="12"></line>
-                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                <circle cx="11" cy="11" r="7"></circle>
+                <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
               </svg>
             </div>
             <Image
@@ -67,7 +67,7 @@ export default function Home() {
               alt="Foto do eleitor"
               width={202}
               height={283}
-              className="w-[120px] h-[160px] rounded-2xl  shadow-md object-cover block"
+              className="block h-[210px] w-[150px] rounded-[15px] object-cover shadow-[0_6px_18px_rgba(0,0,0,0.22),0_2px_6px_rgba(0,0,0,0.12)]"
               priority
             />
           </div>
@@ -75,7 +75,7 @@ export default function Home() {
 
         {/* Content Section with Guilloché Background */}
         <div
-          className="flex-1 bg-white relative -mt-6 rounded-t-[32px] px-6 pt-24 pb-32 overflow-y-auto scrollbar-hide z-0"
+          className="flex-1 bg-white relative -mt-6 rounded-t-[32px] px-6 pt-[112px] pb-32 overflow-y-auto scrollbar-hide z-0"
           style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 40c20 0 20-20 40-20M0 20c20 0 20 20 40 20m0 0c-20 0-20 20-40 20m80 0c-20 0-20-20-40-20' fill='none' stroke='%23f5f5f5' stroke-width='1'/%3E%3C/svg%3E")`,
             backgroundSize: "80px 80px",
@@ -222,35 +222,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Bottom Navigation */}
-        <div className="bg-white border-t border-gray-100 px-2 pt-2 pb-10 flex justify-between items-center fixed bottom-0 left-0 right-0 sm:absolute max-w-[430px] mx-auto shadow-[0_-5px_20px_rgba(0,0,0,0.05)] z-10">
-          <button className="flex flex-col items-center gap-1.5 flex-1">
-            <div className="bg-[#173058]/5 p-2 rounded-xl">
-              <IdCard size={26} color="#173058" strokeWidth={2} />
-            </div>
-            <span className="text-[11px] font-bold text-[#173058]">
-              e-Título
-            </span>
-          </button>
-
-          <button className="flex flex-col items-center gap-1.5 flex-1 opacity-30">
-            <MapPin size={26} strokeWidth={2} />
-            <span className="text-[11px] font-semibold">Onde votar</span>
-          </button>
-
-          <button className="flex flex-col items-center gap-1.5 flex-1 opacity-30">
-            <Bell size={26} strokeWidth={2} />
-            <span className="text-[11px] font-semibold">Notificações</span>
-          </button>
-
-          <button className="flex flex-col items-center gap-1.5 flex-1 opacity-30">
-            <Menu size={26} strokeWidth={2} />
-            <span className="text-[11px] font-semibold">Mais opções</span>
-          </button>
-
-          {/* Home Indicator Bar for iOS */}
-          <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-32 h-1.5 bg-gray-200 rounded-full opacity-50"></div>
-        </div>
+        <BottomNav activeTab="etitulo" />
       </div>
     </div>
   );
