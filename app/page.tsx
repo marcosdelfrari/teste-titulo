@@ -67,7 +67,7 @@ export default function Home() {
               alt="Foto do eleitor"
               width={202}
               height={283}
-              className="block h-[210px] w-[150px] rounded-[15px] object-cover shadow-[0_6px_18px_rgba(0,0,0,0.22),0_2px_6px_rgba(0,0,0,0.12)]"
+              className="block h-[182px] w-[130px] rounded-[15px] object-cover shadow-[0_6px_18px_rgba(0,0,0,0.22),0_2px_6px_rgba(0,0,0,0.12)]"
               priority
             />
           </div>
